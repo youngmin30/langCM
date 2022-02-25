@@ -39,6 +39,23 @@ public class Member implements UserDetails {
     private boolean isCredentialsNonExpired = true;
     private boolean isEnabled = true;
 
+    // 생성 메소드 만들기
+    public static Member createMember(String loginId, String loginPw, String name, String nickname, String email, Role authority) {
+        Member member = new Member();
+
+        member.loginId = loginId;
+        member.loginPw = loginPw;
+
+        member.name = name;
+        member.nickname = nickname;
+        member.email = email;
+
+        member.authority = authority;
+
+        return member;
+
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -82,3 +99,4 @@ public class Member implements UserDetails {
     }
 
 }
+
